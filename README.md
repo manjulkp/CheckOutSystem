@@ -1,5 +1,4 @@
 # CheckOutSystem
-Checkout System
 =======================
 
 
@@ -24,6 +23,7 @@ Prerequisites
 
 - Java 8
 - Maven
+- Junit
 
 Building and Testing
 ---------------
@@ -36,8 +36,8 @@ mvn clean verify
 
 Where do I start?
 ---------------
-Since the project doesn't contain a main method the best place to start would be the acceptance tests.: ```src/test/java/com/dius/checkout/acceptance/AcceptanceTest.java```
-This file sets up and runs the scenarios from the spec. It serves as a good usage example to consumers of the Checkout class.
+To get feel of the application , the best place to start would be this tests.: ```/checkout.system.com/src/main/java/helper/TestCheckout.java```
+It serves as a good usage example to consumers of the Checkout class.
 
 
 Design and Implementation
@@ -48,11 +48,12 @@ This section briefly describes the important interfaces/classes of the system an
 ##### ItemRepository
    This provides an interface for accessing information about the items available at the shop.
    
-##### Order
-   This holds information about a person's order. An order is made up of Rows. Each row is grouped by SKU (much like an order receipt from a shop) and contains the total quantity, original unit price, final unit price, etc. This means later on we could easily tell the user how much money they've saved, or how many free items they've received.
+##### CheckOut 
+   This scan the items 
    
-##### Rule
-   The rule interface allows us to swap in different pricing rule implementations before applying them to the order. This meets the requirement for rules to be flexible. For example, the SimpleBundleRule could trivially be extended to allow different and more complex bundle combinations.
+##### Promotion Rules
+   1. If you spend over £60, then you get 10% off your purchase
+   2. If you buy 2 or more travel card holders then the price drops to £8.50.
 
 Tests
 ---------------
