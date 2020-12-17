@@ -49,7 +49,10 @@ This section briefly describes the important interfaces/classes of the system an
    This provides an interface for accessing information about the items available at the shop.
    
 ##### CheckOut 
-   This scan the items 
+   1. This scan the items and compare with itemDb
+   2. Apply the promotion rule at item level and on the total amount if there is discount criteria if the amount crosses the expected total amount
+   3. Calculate the total ,since we are dealing with money -dataType choosen is BigDecimal with 2 decimal precision
+   
    
 ##### Promotion Rules
    1. If you spend over £60, then you get 10% off your purchase
@@ -57,6 +60,13 @@ This section briefly describes the important interfaces/classes of the system an
 
 Tests
 ---------------
-There are a number of unit tests which cover pretty much everything that isn't a trivial getter/setter. 
+Test data
+---------
+1. Basket: 001,002,003
+   Total price expected: £66.78
+2. Basket: 001,003,001
+   Total price expected: £36.95
+3. Basket: 001,002,001,003
+   Total price expected: £73.76
 
 
